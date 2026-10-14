@@ -10,6 +10,7 @@ import { CommandCenterTab } from './components/CommandCenterTab';
 import { WasteScannerTab } from './components/WasteScannerTab';
 import { GridPulseTab } from './components/GridPulseTab';
 import { CommunityLeaderboard } from './components/CommunityLeaderboard';
+import { DeploymentStrategyModal } from './components/DeploymentStrategyModal';
 import { AnimatePresence, PageTransition } from './components/motion/MotionTransitions';
 import {
   DispatchEvent,
@@ -41,6 +42,9 @@ export default function App() {
   const [activeNgoPickups, setActiveNgoPickups] = useState<number>(INITIAL_KPIS.activeNgoPickups);
   const [co2eAvoidedKg, setCo2eAvoidedKg] = useState<number>(INITIAL_KPIS.co2eAvoidedKg);
   const [gridPeakShavedKw, setGridPeakShavedKw] = useState<number>(INITIAL_KPIS.gridPeakShavedKw);
+
+  // Deployment Strategy & CPS IoT Roadmap Modal state
+  const [isDeploymentModalOpen, setIsDeploymentModalOpen] = useState<boolean>(false);
 
   // User EcoCredits state
   const [userCredits, setUserCredits] = useState<number>(1450);
@@ -203,6 +207,7 @@ export default function App() {
         language={language}
         setLanguage={setLanguage}
         userCredits={userCredits}
+        onOpenDeploymentStrategy={() => setIsDeploymentModalOpen(true)}
       />
 
       {/* Main Container */}
@@ -282,12 +287,25 @@ export default function App() {
             <span>• Community Micro-Waste & Neighborhood Energy Optimizer</span>
           </div>
           <div className="flex items-center gap-4 text-[11px]">
+            <button
+              onClick={() => setIsDeploymentModalOpen(true)}
+              className="text-cyan-400 hover:text-cyan-300 underline underline-offset-2 font-semibold cursor-pointer flex items-center gap-1"
+            >
+              <span>IoT CapEx & Deployment Blueprint</span>
+            </button>
+            <span>•</span>
             <span>Powered by Gemini 2.5 Flash Multimodal</span>
             <span>•</span>
             <span>FSSAI & Municipal Zero-Waste Compliant</span>
           </div>
         </div>
       </footer>
+
+      {/* Interactive Cyber-Physical Systems Deployment Strategy Modal */}
+      <DeploymentStrategyModal
+        isOpen={isDeploymentModalOpen}
+        onClose={() => setIsDeploymentModalOpen(false)}
+      />
     </div>
   );
 }

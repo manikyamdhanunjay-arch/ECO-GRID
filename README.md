@@ -22,6 +22,7 @@
   - [3. GridPulse™ Micro-Grid Peak Shaving Optimizer](#3-gridpulse-micro-grid-peak-shaving-optimizer)
   - [4. Community Leaderboard & EcoCredit Economy](#4-community-leaderboard--ecocredit-economy)
   - [5. Multilingual Localization (EN, HI, TE)](#5-multilingual-localization-en-hi-te)
+  - [6. Cyber-Physical Systems (CPS) IoT CapEx Minimization Strategy](#6-cyber-physical-systems-cps-iot-capex-minimization-strategy)
 - [Project Structure](#-project-structure)
 - [API Endpoints](#-api-endpoints)
 - [Getting Started](#-getting-started)
@@ -101,6 +102,24 @@ Modern urban centers face two compounding environmental challenges every day:
 ### 5. Multilingual Localization (EN, HI, TE)
 - Built-in multi-language toggle for **English**, **Hindi (हिन्दी)**, and **Telugu (తెలుగు)**.
 - Backend automated translation powered by Gemini AI with safe caching and domain term preservation.
+
+### 6. Cyber-Physical Systems (CPS) IoT CapEx Minimization Strategy
+- **Virtualization-First Digital Twin**: Generates synthetic 15-minute electrical load profiles and block-level food surplus yields from historical municipal billing, route manifests, and building square footage before buying physical sensors.
+- **Asymmetric Pareto Hardware Priority Matrix**: Replaces blanket edge sensorization with strategic choke points (e.g. 4 substation split-core CTs and 2 central NGO sorting dock vision stations instead of outfitting 30 trucks and 2,500 residential meters).
+- **Low-Cost / Passive Telemetry**: Harnesses driver smartphone GPS via Progressive Web App (PWA), weatherproof QR/NFC cryptographic handover tokens, and open-source ESP32 hardware alternatives.
+- **Actionable 3-Phase Timeline**:
+```
+MONTH 0 ─────── MONTH 3 ────────────── MONTH 8 ──────────────── MONTH 18
+  │                │                      │                       │
+  ▼                ▼                      ▼                       ▼
+┌──────────────────┐  ┌───────────────────┐  ┌────────────────────┐
+│     PHASE 1      │  │      PHASE 2      │  │      PHASE 3       │
+│  Zero-Hardware   │  │ High-Impact Hubs  │  │  Full Integration  │
+│  Digital Twin    │  │  Surgical CapEx   │  │   Autonomous CPS   │
+└──────────────────┘  └───────────────────┘  └────────────────────┘
+  CapEx: $0              CapEx: ~$12,500         CapEx: Funded by OpEx
+```
+- **Full Architecture Specification**: See the comprehensive blueprint in [`DEPLOYMENT_STRATEGY.md`](DEPLOYMENT_STRATEGY.md) and interactive in-app modal via the **"IoT CapEx Plan"** button.
 
 ---
 

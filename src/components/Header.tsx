@@ -9,6 +9,7 @@ import {
   Flame,
   BarChart3,
   Sparkles,
+  Cpu,
 } from 'lucide-react';
 import { SupportedLanguage } from '../types';
 import { UI_TRANSLATIONS } from '../data/mockData';
@@ -19,6 +20,7 @@ interface HeaderProps {
   language: SupportedLanguage;
   setLanguage: (lang: SupportedLanguage) => void;
   userCredits: number;
+  onOpenDeploymentStrategy?: () => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -27,6 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
   language,
   setLanguage,
   userCredits,
+  onOpenDeploymentStrategy,
 }) => {
   const t = UI_TRANSLATIONS[language] || UI_TRANSLATIONS.en;
 
@@ -45,15 +48,15 @@ export const Header: React.FC<HeaderProps> = ({
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-black text-xl sm:text-2xl tracking-tight text-white flex items-center">
+                <span className="font-bold text-xl sm:text-2xl tracking-tight text-white flex items-center">
                   Eco<span className="bg-gradient-to-r from-blue-400 via-sky-300 to-cyan-400 bg-clip-text text-transparent">Grid</span>
                 </span>
-                <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 text-[11px] font-bold rounded-full bg-gradient-to-r from-blue-500/20 via-sky-500/20 to-indigo-500/20 text-sky-300 border border-blue-400/40 shadow-inner">
+                <span className="hidden sm:inline-flex items-center px-2 py-0.5 text-[11px] font-medium rounded-full bg-gradient-to-r from-blue-500/20 via-sky-500/20 to-indigo-500/20 text-sky-300 border border-blue-400/30">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1.5" />
                   Live v2.5
                 </span>
               </div>
-              <p className="text-xs text-slate-400 hidden md:block tracking-wide">
+              <p className="text-xs text-slate-400 hidden md:block tracking-normal font-normal">
                 {t.appTagline}
               </p>
             </div>
@@ -63,9 +66,9 @@ export const Header: React.FC<HeaderProps> = ({
           <nav className="hidden lg:flex items-center gap-1.5 bg-slate-900/90 p-1.5 rounded-2xl border border-blue-900/40 backdrop-blur-md shadow-inner">
             <button
               onClick={() => setActiveTab('command')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
                 activeTab === 'command'
-                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)] scale-102'
+                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)]'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
               }`}
             >
@@ -75,39 +78,39 @@ export const Header: React.FC<HeaderProps> = ({
 
             <button
               onClick={() => setActiveTab('scanner')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
                 activeTab === 'scanner'
-                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)] scale-102'
+                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)]'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
               }`}
             >
               <ScanLine className="w-4 h-4 text-amber-300" />
               <span>{t.tabs.wasteScanner}</span>
-              <span className="text-[10px] bg-amber-400/25 text-amber-300 px-1.5 py-0.5 rounded font-mono font-bold">
+              <span className="text-[10px] bg-amber-400/25 text-amber-300 px-1.5 py-0.5 rounded font-mono font-medium">
                 AI
               </span>
             </button>
 
             <button
               onClick={() => setActiveTab('grid')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
                 activeTab === 'grid'
-                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)] scale-102'
+                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)]'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
               }`}
             >
               <Flame className="w-4 h-4 text-orange-400" />
               <span>{t.tabs.gridPulse}</span>
-              <span className="text-[10px] bg-orange-500/25 text-orange-300 px-1.5 py-0.5 rounded font-mono font-bold">
+              <span className="text-[10px] bg-orange-500/25 text-orange-300 px-1.5 py-0.5 rounded font-mono font-medium">
                 24h
               </span>
             </button>
 
             <button
               onClick={() => setActiveTab('leaderboard')}
-              className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-bold transition-all duration-300 cursor-pointer ${
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all duration-300 cursor-pointer ${
                 activeTab === 'leaderboard'
-                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)] scale-102'
+                  ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-[0_0_18px_rgba(37,99,235,0.45)]'
                   : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
               }`}
             >
@@ -132,6 +135,23 @@ export const Header: React.FC<HeaderProps> = ({
               </select>
             </div>
 
+            {/* CPS IoT Strategy & CapEx Minimization Blueprint Button */}
+            <button
+              onClick={onOpenDeploymentStrategy}
+              title="Cyber-Physical Systems IoT Deployment Strategy & CapEx Roadmap"
+              className="flex items-center gap-2 bg-slate-900/90 hover:bg-slate-800/90 border border-blue-500/40 hover:border-cyan-400 px-3 py-1.5 rounded-2xl cursor-pointer text-xs transition-all shadow-[0_0_15px_rgba(37,99,235,0.2)] hover:shadow-[0_0_22px_rgba(6,182,212,0.35)] group"
+            >
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500/20 to-cyan-500/20 border border-blue-400/40 flex items-center justify-center text-cyan-300 group-hover:scale-110 transition-transform">
+                <Cpu className="w-4 h-4 text-cyan-300" />
+              </div>
+              <div className="hidden sm:block text-left">
+                <div className="text-[10px] text-slate-400 font-medium leading-none">CPS Architecture</div>
+                <div className="text-xs font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-cyan-300">
+                  IoT CapEx Plan
+                </div>
+              </div>
+            </button>
+
             {/* EcoCredits Badge with Radiant Electric Blue Glow */}
             <div
               onClick={() => setActiveTab('leaderboard')}
@@ -145,7 +165,7 @@ export const Header: React.FC<HeaderProps> = ({
                   EcoCredits
                   <Sparkles className="w-2.5 h-2.5 text-amber-300 animate-pulse" />
                 </div>
-                <div className="text-sm font-black text-transparent bg-gradient-to-r from-blue-300 via-sky-200 to-cyan-300 bg-clip-text font-mono leading-tight">
+                <div className="text-sm font-semibold text-transparent bg-gradient-to-r from-blue-300 via-sky-200 to-cyan-300 bg-clip-text font-mono leading-tight tabular-nums">
                   {userCredits.toLocaleString()}
                 </div>
               </div>
@@ -155,6 +175,13 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Mobile Horizontal Sub-Nav */}
         <div className="flex lg:hidden overflow-x-auto py-2.5 gap-2 scrollbar-none border-t border-slate-800/80">
+          <button
+            onClick={onOpenDeploymentStrategy}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all bg-blue-950/60 text-cyan-300 border border-blue-500/40 shadow-sm"
+          >
+            <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+            <span>IoT CapEx Plan</span>
+          </button>
           <button
             onClick={() => setActiveTab('command')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all ${

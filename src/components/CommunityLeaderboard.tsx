@@ -118,7 +118,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
 
           <button
             onClick={handleDownloadCsv}
-            className="flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-xs sm:text-sm shadow-xl shadow-blue-950/80 transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="flex items-center justify-center gap-2.5 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-blue-950/80 transition-all duration-300 hover:scale-102 cursor-pointer"
           >
             <Download className="w-4 h-4 text-white" />
             <span>{t.downloadCsv}</span>
@@ -133,8 +133,8 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Compliance Seal</span>
-            <span className="text-sm font-black text-white">ISO 14001 Circular Ready</span>
+            <span className="text-[11px] text-slate-400 block font-medium uppercase tracking-wider">Compliance Seal</span>
+            <span className="text-sm font-semibold text-white">ISO 14001 Circular Ready</span>
             <span className="text-[10px] text-sky-400 block font-mono">Municipal Green Rating: AAA</span>
           </div>
         </MotionCard>
@@ -144,8 +144,8 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
             <Sparkles className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Community EcoCredits Pool</span>
-            <span className="text-sm font-black text-amber-300 font-mono">14,940 Points</span>
+            <span className="text-[11px] text-slate-400 block font-medium uppercase tracking-wider">Community EcoCredits Pool</span>
+            <span className="text-sm font-semibold text-amber-300 font-mono tabular-nums">14,940 Points</span>
             <span className="text-[10px] text-amber-400 block font-mono">Redeemable for solar tariffs</span>
           </div>
         </MotionCard>
@@ -155,8 +155,8 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
             <TrendingUp className="w-6 h-6" />
           </div>
           <div>
-            <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Substation Protection</span>
-            <span className="text-sm font-black text-purple-300 font-mono">{gridPeakShavedKw} kW Shaved</span>
+            <span className="text-[11px] text-slate-400 block font-medium uppercase tracking-wider">Substation Protection</span>
+            <span className="text-sm font-semibold text-purple-300 font-mono tabular-nums">{gridPeakShavedKw} kW Shaved</span>
             <span className="text-[10px] text-purple-400 block font-mono">Overheat risk mitigated</span>
           </div>
         </MotionCard>
@@ -165,7 +165,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
       {/* Leaderboard Table with Specular Rows */}
       <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-slate-800 overflow-hidden shadow-2xl">
         <div className="p-6 border-b border-slate-800 flex items-center justify-between">
-          <h3 className="font-black text-white text-base flex items-center gap-2">
+          <h3 className="font-semibold text-white text-base flex items-center gap-2">
             <Medal className="w-4 h-4 text-amber-400" />
             <span>Top Neighborhood Sustainability Champions</span>
           </h3>
@@ -176,7 +176,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
 
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs">
-            <thead className="bg-slate-950 text-slate-400 border-b border-slate-800 font-semibold tracking-wider uppercase text-[10px]">
+            <thead className="bg-slate-950 text-slate-400 border-b border-slate-800 font-medium tracking-wider uppercase text-[10px]">
               <tr>
                 <th className="py-4 px-5">{t.rank}</th>
                 <th className="py-4 px-5">{t.name}</th>
@@ -194,19 +194,19 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
                     key={entry.rank}
                     className="hover:bg-slate-800/40 transition-colors duration-200"
                   >
-                    <td className="py-4 px-5 font-mono font-bold">
+                    <td className="py-4 px-5 font-mono font-medium">
                       {entry.rank === 1 && (
-                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-amber-300 to-orange-500 text-slate-950 font-black shadow-md">
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-amber-300 to-orange-500 text-slate-950 font-bold shadow-md">
                           1
                         </span>
                       )}
                       {entry.rank === 2 && (
-                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 text-white font-black shadow-md">
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 text-white font-bold shadow-md">
                           2
                         </span>
                       )}
                       {entry.rank === 3 && (
-                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 text-amber-100 font-black shadow-md">
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-amber-600 to-amber-800 text-amber-100 font-bold shadow-md">
                           3
                         </span>
                       )}
@@ -219,10 +219,10 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
                       <div className="flex items-center gap-3.5">
                         <span className="text-2xl filter drop-shadow">{entry.avatar}</span>
                         <div>
-                          <span className="font-bold text-white block text-sm">
+                          <span className="font-semibold text-white block text-sm">
                             {entry.name}
                           </span>
-                          <span className="text-[11px] text-slate-400">
+                          <span className="text-[11px] text-slate-400 font-normal">
                             {entry.role}
                           </span>
                         </div>
@@ -235,20 +235,20 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
                       </span>
                     </td>
 
-                    <td className="py-4 px-5 text-right font-mono font-bold text-sky-400">
+                    <td className="py-4 px-5 text-right font-mono font-medium text-sky-400 tabular-nums">
                       {entry.wasteDivertedKg.toLocaleString()} kg
                     </td>
 
-                    <td className="py-4 px-5 text-right font-mono font-bold text-violet-400">
+                    <td className="py-4 px-5 text-right font-mono font-medium text-violet-400 tabular-nums">
                       {entry.peakShavedKw} kW
                     </td>
 
-                    <td className="py-4 px-5 text-right font-mono font-black text-amber-400">
+                    <td className="py-4 px-5 text-right font-mono font-semibold text-amber-400 tabular-nums">
                       {entry.ecoCredits.toLocaleString()} pts
                     </td>
 
                     <td className="py-4 px-5 text-center">
-                      <span className="inline-block text-[10px] font-bold px-3 py-1 rounded-full bg-blue-500/20 text-sky-300 border border-blue-400/30 uppercase tracking-wider">
+                      <span className="inline-block text-[10px] font-medium px-2.5 py-0.5 rounded-full bg-blue-500/20 text-sky-300 border border-blue-400/30 uppercase tracking-wider">
                         {entry.badge}
                       </span>
                     </td>

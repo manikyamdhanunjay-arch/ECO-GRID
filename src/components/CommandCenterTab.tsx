@@ -460,15 +460,15 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
               <button
                 key={tab.id}
                 onClick={() => setFilterType(tab.id)}
-                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
+                className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-blue-500/35 font-black ring-1 ring-blue-400/50'
+                    ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-blue-500/35 font-semibold ring-1 ring-blue-400/50'
                     : 'bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800'
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : tab.color || 'text-slate-400'}`} />
                 <span>{tab.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-white/20 text-white font-bold' : 'bg-slate-800 text-slate-300'}`}>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full tabular-nums ${isActive ? 'bg-white/20 text-white font-semibold' : 'bg-slate-800 text-slate-300'}`}>
                   {tab.count}
                 </span>
               </button>
@@ -500,14 +500,14 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
               placeholder="Search hubs, vans, food..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl pl-8 pr-3 py-1.5 w-44 sm:w-56 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 placeholder:text-slate-500 font-medium"
+              className="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl pl-8 pr-3 py-1.5 w-44 sm:w-56 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 placeholder:text-slate-500 font-normal"
             />
           </div>
 
           {/* Drop Pin Report Button */}
           <button
             onClick={() => setIsDropPinMode(!isDropPinMode)}
-            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
               isDropPinMode
                 ? 'bg-rose-500 text-white shadow-lg shadow-rose-950/60 ring-2 ring-rose-400'
                 : 'bg-slate-950 text-slate-300 border border-slate-800 hover:text-white hover:border-blue-500/50'
@@ -530,9 +530,9 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 <Compass className="w-5 h-5 animate-spin-slow" />
               </div>
               <div>
-                <h3 className="text-sm font-black text-white tracking-tight flex items-center gap-2">
+                <h3 className="text-sm font-semibold text-white tracking-tight flex items-center gap-2">
                   <span>{t.liveMapTitle}</span>
-                  <span className="flex items-center gap-1 text-[10px] font-mono font-bold text-sky-300 bg-blue-500/20 border border-blue-400/40 px-2 py-0.5 rounded-full">
+                  <span className="flex items-center gap-1 text-[10px] font-mono font-medium text-sky-300 bg-blue-500/20 border border-blue-400/40 px-2 py-0.5 rounded-full">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
                     LIVE GPS ROUTE STREAM
                   </span>

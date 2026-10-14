@@ -125,7 +125,7 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
             <div className="absolute top-0 right-0 -mr-6 -mt-6 w-20 h-20 rounded-full bg-white/5 blur-xl group-hover:bg-white/10 transition-colors pointer-events-none" />
 
             <div className="flex items-center justify-between mb-3 relative z-10">
-              <span className="text-xs font-semibold text-slate-300 line-clamp-1 tracking-wide">
+              <span className="text-xs font-medium text-slate-300 line-clamp-1">
                 {card.title}
               </span>
               <div
@@ -136,24 +136,24 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
             </div>
 
             <div className="flex items-baseline gap-2 relative z-10">
-              <span className={`text-xl sm:text-2xl font-black font-mono tracking-tight text-transparent bg-gradient-to-r ${card.valColor} bg-clip-text`}>
+              <span className={`text-xl sm:text-2xl font-bold font-mono tracking-tight tabular-nums text-transparent bg-gradient-to-r ${card.valColor} bg-clip-text`}>
                 {card.value}
               </span>
             </div>
 
             <div className="mt-2.5 flex items-center text-[11px] text-slate-400 relative z-10">
               {card.trend === 'live' ? (
-                <span className="inline-flex items-center text-cyan-400 font-bold mr-1.5">
+                <span className="inline-flex items-center text-cyan-400 font-semibold mr-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping mr-1" />
                   Live
                 </span>
               ) : (
-                <span className="inline-flex items-center text-sky-400 font-bold mr-1.5">
+                <span className="inline-flex items-center text-sky-400 font-semibold mr-1.5">
                   <ArrowUpRight className="w-3 h-3 mr-0.5" />
                   Realtime
                 </span>
               )}
-              <span className="truncate text-slate-400 font-medium">{card.subtext}</span>
+              <span className="truncate text-slate-400 font-normal">{card.subtext}</span>
             </div>
           </motion.div>
         );

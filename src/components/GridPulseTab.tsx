@@ -119,10 +119,10 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
               <Zap className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>Autonomous Microgrid Dispatch & Demand Response</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               {t.title}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed font-normal">
               {t.subtitle}
             </p>
           </div>
@@ -131,7 +131,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
             <button
               onClick={handleSimulateSpike}
               disabled={isSimulatingSpike}
-              className="flex items-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 hover:from-amber-300 hover:to-rose-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-amber-950/80 transition-all duration-300 hover:scale-105 cursor-pointer disabled:opacity-50"
+              className="flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-rose-500 hover:from-amber-300 hover:to-rose-400 text-slate-950 font-semibold text-xs sm:text-sm shadow-xl shadow-amber-950/80 transition-all duration-300 hover:scale-102 cursor-pointer disabled:opacity-50"
             >
               {isSimulatingSpike ? (
                 <>
@@ -153,10 +153,10 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Safe Threshold Card */}
         <div className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl">
-          <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Safe Grid Capacity Limit</span>
+          <span className="text-[11px] text-slate-400 block font-medium uppercase tracking-wider">Safe Grid Capacity Limit</span>
           <div className="mt-1 flex items-baseline gap-1">
             <ShieldCheck className="w-4 h-4 text-sky-400 mr-1" />
-            <span className="text-2xl font-black text-white font-mono">420</span>
+            <span className="text-2xl font-bold text-white font-mono tabular-nums">420</span>
             <span className="text-xs text-slate-400 font-mono">kW Rating</span>
           </div>
           <span className="text-[10px] text-slate-500 mt-1 block">Substation Transformer T-04 Limit</span>
@@ -164,40 +164,40 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
 
         {/* Raw Peak Load */}
         <div className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl">
-          <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Unmitigated Peak Demand</span>
+          <span className="text-[11px] text-slate-400 block font-medium uppercase tracking-wider">Unmitigated Peak Demand</span>
           <div className="mt-1 flex items-baseline gap-1">
             <Flame className="w-4 h-4 text-orange-400 mr-1" />
-            <span className="text-2xl font-black text-orange-400 font-mono">{currentPeakDemand}</span>
+            <span className="text-2xl font-bold text-orange-400 font-mono tabular-nums">{currentPeakDemand}</span>
             <span className="text-xs text-slate-400 font-mono">kW (19:00)</span>
           </div>
-          <span className="text-[10px] text-orange-300/80 mt-1 block font-mono font-semibold">
+          <span className="text-[10px] text-orange-300/80 mt-1 block font-mono font-medium">
             +{currentPeakDemand - safeThreshold} kW above safe threshold
           </span>
         </div>
 
         {/* Community Shaved Load */}
         <div className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl">
-          <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Active Community Load Shaved</span>
+          <span className="text-[11px] text-slate-400 block font-medium uppercase tracking-wider">Active Community Load Shaved</span>
           <div className="mt-1 flex items-baseline gap-1">
             <TrendingDown className="w-4 h-4 text-cyan-400 mr-1" />
-            <span className="text-2xl font-black text-transparent bg-gradient-to-r from-cyan-300 via-sky-200 to-blue-300 bg-clip-text font-mono">
+            <span className="text-2xl font-bold text-transparent bg-gradient-to-r from-cyan-300 via-sky-200 to-blue-300 bg-clip-text font-mono tabular-nums">
               -{totalPledgedKw}
             </span>
             <span className="text-xs text-slate-400 font-mono">kW Pledged</span>
           </div>
-          <span className="text-[10px] text-cyan-400/90 mt-1 block font-mono font-semibold">
+          <span className="text-[10px] text-cyan-400/90 mt-1 block font-mono font-medium">
             {pledges.filter((p) => p.active).length} of {pledges.length} pledges active
           </span>
         </div>
 
         {/* Transformer Health State */}
         <div className={`p-5 rounded-3xl border backdrop-blur-xl transition-all duration-500 ${isOverloaded ? 'bg-rose-950/30 border-rose-500/50 shadow-[0_0_25px_rgba(244,63,94,0.25)]' : 'bg-blue-950/30 border-blue-500/50 shadow-[0_0_25px_rgba(37,99,235,0.25)]'}`}>
-          <span className="text-[11px] text-slate-300 block font-semibold uppercase tracking-wider">Transformer Operating State</span>
+          <span className="text-[11px] text-slate-300 block font-medium uppercase tracking-wider">Transformer Operating State</span>
           <div className="mt-1 flex items-center justify-between">
-            <span className={`text-base font-black font-mono ${isOverloaded ? 'text-rose-400' : 'text-sky-300'}`}>
+            <span className={`text-base font-bold font-mono ${isOverloaded ? 'text-rose-400' : 'text-sky-300'}`}>
               {isOverloaded ? `OVERLOAD (+${overloadKw} kW)` : 'SECURE & BALANCED'}
             </span>
-            <span className="text-xs font-mono font-black text-white">
+            <span className="text-xs font-mono font-bold text-white tabular-nums">
               {Math.round((currentOptimizedPeak / safeThreshold) * 100)}%
             </span>
           </div>
@@ -225,17 +225,17 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
                 <AlertTriangle className="w-5 h-5 animate-pulse" />
               </div>
               <div>
-                <span className="text-[10px] font-black text-amber-400 uppercase tracking-widest font-mono">
+                <span className="text-[10px] font-bold text-amber-400 uppercase tracking-widest font-mono">
                   Gemini Energy Dispatch Directive
                 </span>
-                <h3 className="text-base sm:text-lg font-black text-white">
+                <h3 className="text-base sm:text-lg font-bold text-white">
                   {activeAlertPlan.alertTitle}
                 </h3>
               </div>
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="text-xs font-black px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 uppercase">
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-rose-500/20 text-rose-300 border border-rose-500/40 uppercase">
                 {activeAlertPlan.severity} Priority
               </span>
               <span className="text-xs font-mono font-bold text-slate-200 bg-slate-950 px-3 py-1 rounded-xl border border-slate-800">

@@ -191,14 +191,14 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
       <div className="bg-gradient-to-r from-slate-900 via-blue-950/70 to-slate-900 p-6 sm:p-7 rounded-3xl border border-blue-500/35 shadow-[0_4px_30px_rgba(37,99,235,0.25)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-sky-300 text-xs font-semibold mb-2.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/30 text-sky-300 text-xs font-medium mb-2.5 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>Multimodal Gemini 3.8 Flash Circular Resource Classifier</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
               {t.title}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-2xl leading-relaxed font-normal">
               {t.subtitle}
             </p>
           </div>
@@ -206,7 +206,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
           <button
             onClick={handleRunScan}
             disabled={isScanning}
-            className="flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-xs sm:text-sm shadow-xl shadow-blue-950/80 transition-all duration-300 hover:scale-105 cursor-pointer disabled:opacity-50"
+            className="flex items-center justify-center gap-2.5 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-blue-950/80 transition-all duration-300 hover:scale-102 cursor-pointer disabled:opacity-50"
           >
             {isScanning ? (
               <>
@@ -226,7 +226,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
       {/* Preset Quick Selectors with Fluid Gradients */}
       <div className="space-y-3">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-black text-slate-300 uppercase tracking-widest flex items-center gap-2 font-mono">
+          <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider flex items-center gap-2 font-mono">
             <Compass className="w-4 h-4 text-amber-400" />
             {t.samplePresetsTitle}
           </span>
