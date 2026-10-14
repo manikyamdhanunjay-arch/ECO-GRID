@@ -116,7 +116,7 @@ export const MotionScanningLaser: React.FC<{ active?: boolean }> = ({ active = t
         ease: 'easeInOut',
         repeat: Infinity,
       }}
-      className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent shadow-[0_0_18px_#22d3ee] pointer-events-none z-20"
+      className="absolute left-0 right-0 h-1 bg-gradient-to-r from-transparent via-blue-400 to-transparent shadow-[0_0_20px_#3b82f6] pointer-events-none z-20"
     />
   );
 };
@@ -129,9 +129,9 @@ export const MotionRadarSweep: React.FC = () => (
     <motion.div
       animate={{ rotate: 360 }}
       transition={{ duration: 7, ease: 'linear', repeat: Infinity }}
-      className="w-full h-full rounded-full border border-emerald-500/25 relative"
+      className="w-full h-full rounded-full border border-blue-500/30 relative"
     >
-      <div className="absolute top-1/2 left-1/2 w-1/2 h-[2px] bg-gradient-to-r from-emerald-400 via-cyan-400 to-transparent origin-left" />
+      <div className="absolute top-1/2 left-1/2 w-1/2 h-[2px] bg-gradient-to-r from-blue-500 via-cyan-400 to-transparent origin-left" />
     </motion.div>
   </div>
 );

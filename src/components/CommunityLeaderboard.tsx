@@ -100,11 +100,11 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
 
   return (
     <div className="space-y-8">
-      {/* Top Banner with Download CSV Action & Teal Mesh Gradient */}
-      <div className="bg-gradient-to-r from-slate-900 via-teal-950/60 to-slate-900 p-6 sm:p-7 rounded-3xl border border-teal-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+      {/* Top Banner with Download CSV Action & Vibrant Blue Mesh Gradient */}
+      <div className="bg-gradient-to-r from-slate-900 via-blue-950/70 to-slate-900 p-6 sm:p-7 rounded-3xl border border-blue-500/35 shadow-[0_4px_30px_rgba(37,99,235,0.25)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/15 border border-teal-500/30 text-teal-300 text-xs font-semibold mb-2.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-sky-300 text-xs font-semibold mb-2.5 shadow-sm">
               <Trophy className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>Municipal Circular Economy & Clean Grid Leaderboard</span>
             </div>
@@ -118,9 +118,9 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
 
           <button
             onClick={handleDownloadCsv}
-            className="flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-teal-400 via-emerald-500 to-cyan-500 hover:from-teal-300 hover:to-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-teal-950/80 transition-all duration-300 hover:scale-105 cursor-pointer"
+            className="flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-xs sm:text-sm shadow-xl shadow-blue-950/80 transition-all duration-300 hover:scale-105 cursor-pointer"
           >
-            <Download className="w-4 h-4 text-slate-950" />
+            <Download className="w-4 h-4 text-white" />
             <span>{t.downloadCsv}</span>
           </button>
         </div>
@@ -129,18 +129,18 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
       {/* Aggregate Municipal Audit Badges */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <MotionCard className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-inner">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/25 to-indigo-500/25 border border-blue-400/40 flex items-center justify-center text-sky-300 shadow-inner">
             <ShieldCheck className="w-6 h-6" />
           </div>
           <div>
             <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Compliance Seal</span>
             <span className="text-sm font-black text-white">ISO 14001 Circular Ready</span>
-            <span className="text-[10px] text-emerald-400 block font-mono">Municipal Green Rating: AAA</span>
+            <span className="text-[10px] text-sky-400 block font-mono">Municipal Green Rating: AAA</span>
           </div>
         </MotionCard>
 
         <MotionCard className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/20 to-orange-500/20 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-inner">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500/25 to-orange-500/25 border border-amber-500/40 flex items-center justify-center text-amber-300 shadow-inner">
             <Sparkles className="w-6 h-6" />
           </div>
           <div>
@@ -151,7 +151,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
         </MotionCard>
 
         <MotionCard className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl flex items-center gap-4">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-violet-500/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shadow-inner">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/25 to-violet-500/25 border border-purple-500/40 flex items-center justify-center text-purple-300 shadow-inner">
             <TrendingUp className="w-6 h-6" />
           </div>
           <div>
@@ -201,7 +201,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
                         </span>
                       )}
                       {entry.rank === 2 && (
-                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-slate-200 to-slate-400 text-slate-950 font-black shadow-md">
+                        <span className="inline-flex items-center justify-center w-7 h-7 rounded-xl bg-gradient-to-br from-sky-400 via-blue-500 to-indigo-600 text-white font-black shadow-md">
                           2
                         </span>
                       )}
@@ -235,7 +235,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
                       </span>
                     </td>
 
-                    <td className="py-4 px-5 text-right font-mono font-bold text-emerald-400">
+                    <td className="py-4 px-5 text-right font-mono font-bold text-sky-400">
                       {entry.wasteDivertedKg.toLocaleString()} kg
                     </td>
 
@@ -248,7 +248,7 @@ export const CommunityLeaderboard: React.FC<CommunityLeaderboardProps> = ({
                     </td>
 
                     <td className="py-4 px-5 text-center">
-                      <span className="inline-block text-[10px] font-bold px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 uppercase tracking-wider">
+                      <span className="inline-block text-[10px] font-bold px-3 py-1 rounded-full bg-blue-500/20 text-sky-300 border border-blue-400/30 uppercase tracking-wider">
                         {entry.badge}
                       </span>
                     </td>

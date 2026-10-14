@@ -68,12 +68,15 @@ Modern urban centers face two compounding environmental challenges every day:
 
 ## 🚀 System Capabilities
 
-### 1. Real-Time Command Center & CARTO Voyager Map
-- **CARTO Voyager Tile Integration**: Seamlessly renders CARTO's Voyager raster basemaps (`https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=YOUR_KEY`), with fast in-app switching between Voyager, Dark Matter, and Positron styles.
-- **Live Fleet Tracking**: Moving EV pickup vans (`pickup_van`) animate in real-time along geographic waypoints with dynamic SVG path trails, remaining battery meters, capacity indicators, and speed gauges.
-- **Camera Follow Mode**: Single-click vehicle lock automatically pans and tracks selected rescue vans across the neighborhood.
+### 1. Real-Time Command Center & High-Realism CARTO Map
+- **CARTO Voyager Tile Integration**: Seamlessly renders CARTO's Voyager raster basemaps (`https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=YOUR_KEY`), with 2x High-DPI Retina support (`@2x.png`).
+- **Photorealistic Satellite Hybrid Mode**: Combines high-resolution satellite imagery with CARTO Voyager transparent street labels (`voyager_only_labels`) for photorealistic building, road, and tree detail.
+- **Realistic Street Navigation & Dynamics**: Rescue vans follow authentic street-level corridors with dynamic cornering deceleration, headlight light beams projecting forward on asphalt, active amber turn signals, brake lights, and luminous breadcrumb trails.
+- **3D Aerial Orbit Perspective**: Toggle 25° 3D command orbit perspective for an immersive tactical drone view of the urban district.
+- **Live Traffic Speeds & Congestion**: Dynamic color-coded road polylines displaying real-time traffic speeds along key arterial avenues and flyovers.
+- **Driver Cockpit HUD & Chase Cam**: Live turn-by-turn navigation instructions ("Turn right onto Commercial Ring in 85m"), analog/digital speedometer, EV battery regenerative braking counter, and cargo temperature monitor.
+- **Day / Golden Hour / Night Lighting Simulation**: Sun angle and ambient lighting simulation with active vehicle headlight beams in night mode.
 - **Citizen Drop-Pin Reporting**: Click any point on the map to trigger instant surplus food or grid outage reports with exact GPS latitude and longitude coordinates.
-- **Layer Controls**: Toggle active van transit paths, substation interconnect circuits, and rooftop solar insolation heatmaps.
 
 ### 2. Multimodal Waste & Surplus Food Scanner
 - **Multimodal Gemini Vision**: Analyzes uploaded photos or pre-configured sample presets (Catering Trays, E-Waste, Recyclables).
@@ -215,13 +218,16 @@ EcoGrid comes pre-configured with **CARTO Voyager** raster tiles:
 https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png?key=YOUR_KEY
 ```
 
-- In development mode, the default public CDN endpoints operate seamlessly.
-- You can supply your custom CARTO API Key directly inside the app using the **Tile API Configuration** button in the Command Center map controls, or configure it via environment variables.
+- **High-DPI Retina Support**: Automatically toggles `@2x.png` tiles (`https://basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}@2x.png?key=YOUR_KEY`) for crisp micro-typography and sharp road linework on high-resolution displays.
+- **Key Persistence**: Supply your custom CARTO API Key directly inside the app using the **Settings (⚙)** modal in the map bar; the key is securely saved to `localStorage` and automatically appended to tile requests.
+- **Default Public CDN**: If left blank, the app runs out-of-the-box using the public CARTO Voyager CDN.
 
-Supported Basemap Styles:
-- **CARTO Voyager**: Crisp, colorful urban view ideal for street-level surplus food pickups.
-- **Dark Matter**: High-contrast dark mode tailored for nighttime substation monitoring.
-- **Positron**: Clean, minimal light cartography for print and presentation reports.
+Supported Basemap Modes:
+- **CARTO Voyager**: Vibrant, high-contrast urban cartography with rich land use and crisp street labels.
+- **Photorealistic Satellite**: High-resolution aerial satellite imagery underlaid with transparent CARTO Voyager road and neighborhood labels (`voyager_only_labels`).
+- **Dark Matter**: Low-light tactical command center theme with illuminated vehicle headlights and feeder grid lines.
+- **Positron**: Clean, minimal monochromatic architectural map.
+
 
 ---
 

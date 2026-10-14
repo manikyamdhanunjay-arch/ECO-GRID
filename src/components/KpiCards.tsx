@@ -38,12 +38,12 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
       subtext: '+14% weekly surge',
       trend: 'up',
       icon: Recycle,
-      iconColor: 'text-emerald-300',
-      iconBg: 'bg-gradient-to-br from-emerald-500/20 to-teal-500/20 border-emerald-400/30',
-      gradient: 'from-emerald-950/70 via-slate-900/90 to-teal-950/50',
-      border: 'border-emerald-500/30 hover:border-emerald-400/60',
-      shadow: 'hover:shadow-[0_0_25px_rgba(16,185,129,0.25)]',
-      valColor: 'from-emerald-300 to-teal-200',
+      iconColor: 'text-blue-300',
+      iconBg: 'bg-gradient-to-br from-blue-500/25 to-indigo-500/25 border-blue-400/40',
+      gradient: 'from-blue-950/80 via-slate-900/90 to-indigo-950/60',
+      border: 'border-blue-500/35 hover:border-blue-400/80',
+      shadow: 'hover:shadow-[0_0_28px_rgba(59,130,246,0.35)]',
+      valColor: 'from-blue-300 via-sky-200 to-indigo-200',
     },
     {
       id: 'meals',
@@ -53,11 +53,11 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
       trend: 'up',
       icon: UtensilsCrossed,
       iconColor: 'text-amber-300',
-      iconBg: 'bg-gradient-to-br from-amber-500/20 to-orange-500/20 border-amber-400/30',
-      gradient: 'from-amber-950/70 via-slate-900/90 to-orange-950/50',
-      border: 'border-amber-500/30 hover:border-amber-400/60',
-      shadow: 'hover:shadow-[0_0_25px_rgba(245,158,11,0.25)]',
-      valColor: 'from-amber-300 to-orange-200',
+      iconBg: 'bg-gradient-to-br from-amber-500/25 to-orange-500/25 border-amber-400/40',
+      gradient: 'from-amber-950/80 via-slate-900/90 to-orange-950/60',
+      border: 'border-amber-500/35 hover:border-amber-400/80',
+      shadow: 'hover:shadow-[0_0_28px_rgba(245,158,11,0.35)]',
+      valColor: 'from-amber-300 via-yellow-200 to-orange-200',
     },
     {
       id: 'pickups',
@@ -67,11 +67,11 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
       trend: 'live',
       icon: Truck,
       iconColor: 'text-cyan-300',
-      iconBg: 'bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border-cyan-400/30',
-      gradient: 'from-cyan-950/70 via-slate-900/90 to-sky-950/50',
-      border: 'border-cyan-500/30 hover:border-cyan-400/60',
-      shadow: 'hover:shadow-[0_0_25px_rgba(6,182,212,0.25)]',
-      valColor: 'from-cyan-300 to-blue-200',
+      iconBg: 'bg-gradient-to-br from-cyan-500/25 to-blue-500/25 border-cyan-400/40',
+      gradient: 'from-cyan-950/80 via-slate-900/90 to-blue-950/60',
+      border: 'border-cyan-500/35 hover:border-cyan-400/80',
+      shadow: 'hover:shadow-[0_0_28px_rgba(6,182,212,0.35)]',
+      valColor: 'from-cyan-300 via-sky-200 to-blue-300',
     },
     {
       id: 'co2',
@@ -80,12 +80,12 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
       subtext: `${co2eAvoidedKg.toLocaleString()} kg net CO2e`,
       trend: 'up',
       icon: CloudFog,
-      iconColor: 'text-teal-300',
-      iconBg: 'bg-gradient-to-br from-teal-500/20 to-emerald-500/20 border-teal-400/30',
-      gradient: 'from-teal-950/70 via-slate-900/90 to-emerald-950/50',
-      border: 'border-teal-500/30 hover:border-teal-400/60',
-      shadow: 'hover:shadow-[0_0_25px_rgba(20,184,166,0.25)]',
-      valColor: 'from-teal-300 to-emerald-200',
+      iconColor: 'text-emerald-300',
+      iconBg: 'bg-gradient-to-br from-emerald-500/25 to-teal-500/25 border-emerald-400/40',
+      gradient: 'from-emerald-950/80 via-slate-900/90 to-teal-950/60',
+      border: 'border-emerald-500/35 hover:border-emerald-400/80',
+      shadow: 'hover:shadow-[0_0_28px_rgba(16,185,129,0.35)]',
+      valColor: 'from-emerald-300 via-teal-200 to-cyan-200',
     },
     {
       id: 'grid',
@@ -95,11 +95,11 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
       trend: 'up',
       icon: Zap,
       iconColor: 'text-violet-300',
-      iconBg: 'bg-gradient-to-br from-violet-500/20 to-purple-500/20 border-violet-400/30',
-      gradient: 'from-violet-950/70 via-slate-900/90 to-purple-950/50',
-      border: 'border-violet-500/30 hover:border-violet-400/60',
-      shadow: 'hover:shadow-[0_0_25px_rgba(139,92,246,0.25)]',
-      valColor: 'from-violet-300 to-purple-200',
+      iconBg: 'bg-gradient-to-br from-violet-500/25 to-fuchsia-500/25 border-violet-400/40',
+      gradient: 'from-violet-950/80 via-slate-900/90 to-fuchsia-950/60',
+      border: 'border-violet-500/35 hover:border-violet-400/80',
+      shadow: 'hover:shadow-[0_0_28px_rgba(139,92,246,0.35)]',
+      valColor: 'from-violet-300 via-purple-200 to-fuchsia-200',
     },
   ];
 
@@ -125,7 +125,7 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
             <div className="absolute top-0 right-0 -mr-6 -mt-6 w-20 h-20 rounded-full bg-white/5 blur-xl group-hover:bg-white/10 transition-colors pointer-events-none" />
 
             <div className="flex items-center justify-between mb-3 relative z-10">
-              <span className="text-xs font-semibold text-slate-400 line-clamp-1 tracking-wide">
+              <span className="text-xs font-semibold text-slate-300 line-clamp-1 tracking-wide">
                 {card.title}
               </span>
               <div
@@ -148,7 +148,7 @@ export const KpiCards: React.FC<KpiCardsProps> = ({
                   Live
                 </span>
               ) : (
-                <span className="inline-flex items-center text-emerald-400 font-bold mr-1.5">
+                <span className="inline-flex items-center text-sky-400 font-bold mr-1.5">
                   <ArrowUpRight className="w-3 h-3 mr-0.5" />
                   Realtime
                 </span>

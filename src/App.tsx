@@ -195,7 +195,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 bg-mesh-aurora text-slate-100 flex flex-col selection:bg-emerald-500 selection:text-slate-950">
+    <div className="min-h-screen bg-[#030712] bg-mesh-aurora text-slate-100 flex flex-col selection:bg-blue-600 selection:text-white">
       {/* Top Header */}
       <Header
         activeTab={activeTab}

@@ -315,6 +315,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
 
   // Center camera onto vehicle when tracking
   const handleCenterOnVan = (vanId: string) => {
+    setMapMode('carto');
     setActiveFollowVanId(vanId);
     const pos = liveVanPositions[vanId];
     if (pos) {
@@ -419,7 +420,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
         {/* Filter Chips */}
         <div className="flex flex-wrap items-center gap-2">
           <span className="text-xs font-bold text-slate-400 uppercase tracking-wider font-mono mr-1 flex items-center gap-1.5">
-            <Filter className="w-3.5 h-3.5 text-emerald-400" />
+            <Filter className="w-3.5 h-3.5 text-blue-400" />
             Layers:
           </span>
           {[
@@ -461,13 +462,13 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 onClick={() => setFilterType(tab.id)}
                 className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? 'bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 shadow-md shadow-emerald-950/60 font-black'
-                    : 'bg-slate-950/70 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800'
+                    ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-lg shadow-blue-500/35 font-black ring-1 ring-blue-400/50'
+                    : 'bg-slate-950/80 text-slate-400 hover:text-white hover:bg-slate-800 border border-slate-800'
                 }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-slate-950' : tab.color || 'text-slate-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-white' : tab.color || 'text-slate-400'}`} />
                 <span>{tab.label}</span>
-                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-slate-950/20 text-slate-950' : 'bg-slate-800 text-slate-300'}`}>
+                <span className={`text-[10px] px-1.5 py-0.2 rounded-full ${isActive ? 'bg-white/20 text-white font-bold' : 'bg-slate-800 text-slate-300'}`}>
                   {tab.count}
                 </span>
               </button>
@@ -481,7 +482,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
           <select
             value={selectedSector}
             onChange={(e) => setSelectedSector(e.target.value)}
-            className="bg-slate-950 border border-slate-800 text-slate-300 text-xs rounded-xl px-3 py-1.5 focus:outline-none focus:border-emerald-500 font-medium"
+            className="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl px-3 py-1.5 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 font-medium"
           >
             <option value="all">{t.sectorAll}</option>
             <option value="Market Square">Market Square (Commercial)</option>
@@ -499,7 +500,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
               placeholder="Search hubs, vans, food..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl pl-8 pr-3 py-1.5 w-44 sm:w-56 focus:outline-none focus:border-emerald-500 placeholder:text-slate-500 font-medium"
+              className="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl pl-8 pr-3 py-1.5 w-44 sm:w-56 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 placeholder:text-slate-500 font-medium"
             />
           </div>
 
@@ -509,10 +510,10 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
               isDropPinMode
                 ? 'bg-rose-500 text-white shadow-lg shadow-rose-950/60 ring-2 ring-rose-400'
-                : 'bg-slate-950 text-slate-300 border border-slate-800 hover:text-white hover:border-slate-700'
+                : 'bg-slate-950 text-slate-300 border border-slate-800 hover:text-white hover:border-blue-500/50'
             }`}
           >
-            <Crosshair className={`w-3.5 h-3.5 ${isDropPinMode ? 'animate-spin' : 'text-emerald-400'}`} />
+            <Crosshair className={`w-3.5 h-3.5 ${isDropPinMode ? 'animate-spin' : 'text-blue-400'}`} />
             <span>{isDropPinMode ? 'Click Map to Report' : 'Drop Pin Report'}</span>
           </button>
         </div>
@@ -525,14 +526,14 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
           {/* Map Header with Real-time GPS & Layer Toggles */}
           <div className="relative z-10 flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800/80">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-emerald-500/10 rounded-xl border border-emerald-500/20 text-emerald-400">
+              <div className="p-2 bg-blue-500/15 rounded-xl border border-blue-500/30 text-blue-400">
                 <Compass className="w-5 h-5 animate-spin-slow" />
               </div>
               <div>
                 <h3 className="text-sm font-black text-white tracking-tight flex items-center gap-2">
                   <span>{t.liveMapTitle}</span>
-                  <span className="flex items-center gap-1 text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="flex items-center gap-1 text-[10px] font-mono font-bold text-sky-300 bg-blue-500/20 border border-blue-400/40 px-2 py-0.5 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping" />
                     LIVE GPS ROUTE STREAM
                   </span>
                 </h3>
@@ -550,7 +551,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 onClick={() => setMapMode('carto')}
                 className={`flex items-center gap-1.5 px-3 py-1 rounded-xl font-bold transition-all cursor-pointer ${
                   mapMode === 'carto'
-                    ? 'bg-emerald-500 text-slate-950 shadow-md shadow-emerald-500/30'
+                    ? 'bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-md shadow-blue-500/40'
                     : 'text-slate-400 hover:text-white'
                 }`}
               >
@@ -916,8 +917,8 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
 
             {/* Live Hover Coordinate Readout HUD */}
             {hoveredCoord && (
-              <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-slate-800 text-[10px] font-mono text-slate-300 flex items-center gap-2 shadow-xl">
-                <Crosshair className="w-3 h-3 text-emerald-400" />
+              <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md px-3 py-1.5 rounded-xl border border-blue-900/40 text-[10px] font-mono text-slate-300 flex items-center gap-2 shadow-xl">
+                <Crosshair className="w-3 h-3 text-cyan-400" />
                 <span>GPS: {hoveredCoord.lat}° N, {hoveredCoord.lng}° E</span>
                 <span className="text-slate-600">|</span>
                 <span className="text-amber-400">Solar: 340 W/m²</span>
@@ -930,7 +931,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 <button
                   onClick={() => handleCenterOnVan(selectedNode.id)}
                   title="Track Vehicle"
-                  className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-cyan-300 bg-cyan-950/70 border border-cyan-500/40 hover:bg-cyan-900/80 transition-all cursor-pointer flex items-center gap-1"
+                  className="px-2.5 py-1.5 rounded-xl text-xs font-bold text-sky-200 bg-blue-950/80 border border-blue-500/50 hover:bg-blue-900/90 transition-all cursor-pointer flex items-center gap-1"
                 >
                   <Route className="w-3.5 h-3.5" />
                   <span>Follow Van</span>
@@ -957,7 +958,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
               >
                 <RotateCcw className="w-4 h-4" />
               </button>
-              <span className="text-[10px] font-mono font-bold text-emerald-400 px-2">
+              <span className="text-[10px] font-mono font-bold text-cyan-400 px-2">
                 {Math.round(zoomLevel * 100)}%
               </span>
             </div>
@@ -1002,7 +1003,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
           <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-slate-800 p-5 shadow-2xl transition-all">
             <div className="flex items-center justify-between pb-3.5 border-b border-slate-800">
               <div className="flex items-center gap-2">
-                <Info className="w-4 h-4 text-emerald-400" />
+                <Info className="w-4 h-4 text-blue-400" />
                 <h3 className="text-xs font-black text-white uppercase tracking-widest font-mono">
                   {t.selectedNode}
                 </h3>
@@ -1022,7 +1023,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                   </h4>
                   {selectedNode.address && (
                     <div className="flex items-center gap-1 text-[11px] text-slate-400 mt-0.5">
-                      <MapPin className="w-3 h-3 text-emerald-400 shrink-0" />
+                      <MapPin className="w-3 h-3 text-blue-400 shrink-0" />
                       <span className="truncate">{selectedNode.address}</span>
                     </div>
                   )}
@@ -1041,7 +1042,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                   </div>
                   <div className="bg-slate-950/80 p-3 rounded-2xl border border-slate-800/80">
                     <span className="text-[10px] text-slate-400 block font-semibold uppercase tracking-wider">Operational Metric</span>
-                    <span className="text-emerald-400 font-mono font-bold text-xs mt-1 block truncate">
+                    <span className="text-sky-300 font-mono font-bold text-xs mt-1 block truncate">
                       {selectedNode.itemsCount || `${selectedNode.currentLoadKw} kW / ${selectedNode.capacityKw} kW`}
                     </span>
                   </div>
@@ -1050,7 +1051,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 {selectedNode.contactPhone && (
                   <div className="flex items-center justify-between bg-slate-950/60 px-3 py-2 rounded-xl border border-slate-800 text-xs">
                     <span className="text-slate-400 flex items-center gap-1.5">
-                      <Phone className="w-3.5 h-3.5 text-emerald-400" />
+                      <Phone className="w-3.5 h-3.5 text-blue-400" />
                       <span>Direct Hotline:</span>
                     </span>
                     <span className="font-mono text-slate-200 font-semibold">{selectedNode.contactPhone}</span>
@@ -1102,7 +1103,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                     </div>
                     <button
                       onClick={onOpenGrid}
-                      className="mt-3 w-full bg-gradient-to-r from-violet-500 via-purple-600 to-fuchsia-600 hover:from-violet-400 hover:to-fuchsia-500 text-white font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-purple-950/60 transition-all duration-300 hover:scale-102 cursor-pointer"
+                      className="mt-3 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white font-black py-2.5 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-lg shadow-blue-950/60 transition-all duration-300 hover:scale-102 cursor-pointer"
                     >
                       <Zap className="w-4 h-4" />
                       <span>Open Peak Shaving Plan</span>
@@ -1111,28 +1112,28 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 )}
 
                 {selectedNode.type === 'pickup_van' && (
-                  <div className="bg-gradient-to-br from-cyan-950/40 to-blue-950/20 border border-cyan-500/40 rounded-2xl p-4 text-xs shadow-lg space-y-2.5">
-                    <div className="flex items-center justify-between text-cyan-300 font-bold">
+                  <div className="bg-gradient-to-br from-blue-950/50 via-slate-900 to-cyan-950/40 border border-blue-500/40 rounded-2xl p-4 text-xs shadow-lg space-y-2.5">
+                    <div className="flex items-center justify-between text-sky-300 font-bold">
                       <span>Assigned Driver:</span>
                       <span className="text-white font-semibold">{selectedNode.driverName || 'Ramesh K. (EV Unit)'}</span>
                     </div>
-                    <div className="flex items-center justify-between text-cyan-300 font-bold">
+                    <div className="flex items-center justify-between text-sky-300 font-bold">
                       <span>Destination:</span>
                       <span className="text-white font-semibold truncate max-w-[150px]">{selectedNode.destination || 'Grand Orchid Banquet'}</span>
                     </div>
                     <div className="flex items-center justify-between text-slate-300 pt-1 border-t border-slate-800 text-[11px]">
                       <span className="flex items-center gap-1">
-                        <BatteryCharging className="w-3.5 h-3.5 text-emerald-400" />
+                        <BatteryCharging className="w-3.5 h-3.5 text-cyan-400" />
                         Battery: {selectedNode.batteryLevel || 84}%
                       </span>
                       <span className="flex items-center gap-1 font-mono">
-                        <Gauge className="w-3.5 h-3.5 text-cyan-400" />
+                        <Gauge className="w-3.5 h-3.5 text-sky-400" />
                         Speed: {liveVanPositions[selectedNode.id]?.speed || selectedNode.speedKmH || 30} km/h
                       </span>
                     </div>
                     <button
                       onClick={() => handleCenterOnVan(selectedNode.id)}
-                      className="mt-2 w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-black py-2 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow transition-all duration-300 hover:scale-102 cursor-pointer"
+                      className="mt-2 w-full bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black py-2.5 px-3 rounded-xl text-xs flex items-center justify-center gap-1.5 shadow-lg shadow-blue-900/60 transition-all duration-300 hover:scale-102 cursor-pointer"
                     >
                       <Route className="w-3.5 h-3.5" />
                       <span>Center Camera on Van Route</span>
@@ -1142,7 +1143,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
               </div>
             ) : (
               <div className="py-8 text-center text-slate-500 text-xs">
-                <MapPin className="w-8 h-8 mx-auto mb-2 opacity-40 text-emerald-400" />
+                <MapPin className="w-8 h-8 mx-auto mb-2 opacity-40 text-blue-400" />
                 Select any location on the map to inspect live GPS telemetry, remaining shelf life, or dispatch food rescue vans.
               </div>
             )}
@@ -1152,13 +1153,13 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
           <div className="bg-slate-900/90 backdrop-blur-xl rounded-3xl border border-slate-800 p-5 shadow-2xl">
             <div className="flex items-center justify-between pb-3.5 border-b border-slate-800">
               <div className="flex items-center gap-2">
-                <Activity className="w-4 h-4 text-emerald-400" />
+                <Activity className="w-4 h-4 text-blue-400" />
                 <h3 className="text-xs font-black text-white uppercase tracking-widest font-mono">
                   {t.liveFeed}
                 </h3>
               </div>
-              <span className="flex items-center text-[10px] text-emerald-400 font-mono font-bold">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse mr-1.5" />
+              <span className="flex items-center text-[10px] text-sky-300 font-mono font-bold">
+                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse mr-1.5" />
                 REALTIME GPS STREAM
               </span>
             </div>
@@ -1269,7 +1270,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                   placeholder="e.g. Banquet hall leftover trays or street feeder buzzing"
                   value={pinReportTitle}
                   onChange={(e) => setPinReportTitle(e.target.value)}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-emerald-500"
+                  className="w-full bg-slate-950 border border-slate-800 rounded-xl p-2.5 text-xs text-white focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40"
                 />
               </div>
             </div>
@@ -1298,7 +1299,7 @@ export const CommandCenterTab: React.FC<CommandCenterTabProps> = ({
                 setPinReportTitle('');
                 setIsDropPinMode(false);
               }}
-              className="w-full py-2.5 px-4 rounded-xl font-black text-xs bg-gradient-to-r from-emerald-400 to-teal-500 hover:from-emerald-300 hover:to-teal-400 text-slate-950 flex items-center justify-center gap-1.5 shadow-lg shadow-emerald-950/60 cursor-pointer"
+              className="w-full py-2.5 px-4 rounded-xl font-black text-xs bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white flex items-center justify-center gap-1.5 shadow-lg shadow-blue-950/60 transition-all cursor-pointer"
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>Broadcast Node to EcoGrid Map</span>

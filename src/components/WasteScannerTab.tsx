@@ -187,10 +187,11 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
   return (
     <div className="space-y-8">
       {/* Tab Header Banner with Aurora Gradient */}
-      <div className="bg-gradient-to-r from-slate-900 via-emerald-950/70 to-slate-900 p-6 sm:p-7 rounded-3xl border border-emerald-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+      {/* Top Banner with Gemini Multimodal Branding */}
+      <div className="bg-gradient-to-r from-slate-900 via-blue-950/70 to-slate-900 p-6 sm:p-7 rounded-3xl border border-blue-500/35 shadow-[0_4px_30px_rgba(37,99,235,0.25)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-xs font-semibold mb-2.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-sky-300 text-xs font-semibold mb-2.5 shadow-sm">
               <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>Multimodal Gemini 3.8 Flash Circular Resource Classifier</span>
             </div>
@@ -205,16 +206,16 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
           <button
             onClick={handleRunScan}
             disabled={isScanning}
-            className="flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 hover:from-emerald-300 hover:to-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-emerald-950/80 transition-all duration-300 hover:scale-105 cursor-pointer disabled:opacity-50"
+            className="flex items-center justify-center gap-2.5 px-6 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-xs sm:text-sm shadow-xl shadow-blue-950/80 transition-all duration-300 hover:scale-105 cursor-pointer disabled:opacity-50"
           >
             {isScanning ? (
               <>
-                <RefreshCw className="w-4 h-4 animate-spin text-slate-950" />
+                <RefreshCw className="w-4 h-4 animate-spin text-white" />
                 <span>Auditing Stream...</span>
               </>
             ) : (
               <>
-                <Scan className="w-4 h-4 text-slate-950" />
+                <Scan className="w-4 h-4 text-white" />
                 <span>Scan & Classify with Gemini</span>
               </>
             )}
@@ -241,7 +242,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
                 onClick={() => handleSelectPreset(preset.id)}
                 className={`cursor-pointer p-5 rounded-3xl border transition-all text-left ${
                   isSelected
-                    ? 'bg-gradient-to-br from-emerald-950/70 via-slate-900 to-cyan-950/40 border-emerald-400 ring-2 ring-emerald-500/40 shadow-[0_0_25px_rgba(16,185,129,0.25)]'
+                    ? 'bg-gradient-to-br from-blue-950/80 via-slate-900 to-indigo-950/60 border-blue-400 ring-2 ring-blue-500/40 shadow-[0_0_25px_rgba(37,99,235,0.35)]'
                     : 'bg-slate-900/80 border-slate-800 hover:border-slate-700 hover:bg-slate-900'
                 }`}
               >
@@ -250,10 +251,10 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
                   <span
                     className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full border uppercase tracking-wider ${
                       preset.badgeColor === 'amber'
-                        ? 'bg-amber-500/15 text-amber-300 border-amber-500/40'
+                        ? 'bg-amber-500/20 text-amber-300 border-amber-500/40'
                         : preset.badgeColor === 'blue'
-                        ? 'bg-cyan-500/15 text-cyan-300 border-cyan-500/40'
-                        : 'bg-emerald-500/15 text-emerald-300 border-emerald-500/40'
+                        ? 'bg-blue-500/20 text-sky-300 border-blue-500/40'
+                        : 'bg-emerald-500/20 text-emerald-300 border-emerald-500/40'
                     }`}
                   >
                     {preset.badge}
@@ -357,11 +358,11 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
               onChange={(e) => setDescriptionInput(e.target.value)}
               placeholder="e.g. 8 trays of freshly prepared hot biryani, sealed warm in catering containers..."
               rows={5}
-              className="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-xs text-slate-200 focus:outline-none focus:border-emerald-500 transition-all leading-relaxed"
+              className="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-xs text-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 transition-all leading-relaxed"
             />
 
-            <div className="mt-3 p-3.5 rounded-2xl bg-emerald-950/20 border border-emerald-500/20 text-[11px] text-emerald-300 flex items-start gap-2.5">
-              <Info className="w-4 h-4 shrink-0 mt-0.5 text-emerald-400" />
+            <div className="mt-3 p-3.5 rounded-2xl bg-blue-950/30 border border-blue-500/30 text-[11px] text-sky-200 flex items-start gap-2.5">
+              <Info className="w-4 h-4 shrink-0 mt-0.5 text-blue-400" />
               <span className="leading-relaxed">
                 Gemini extracts estimated batch mass (kg), spoilage window (hours), contamination risk level, and assigns the optimal destination.
               </span>
@@ -375,7 +376,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
             <button
               onClick={handleRunScan}
               disabled={isScanning}
-              className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-slate-950 font-black text-xs shadow-lg shadow-emerald-950/60 transition-all duration-300 hover:scale-105 cursor-pointer disabled:opacity-50"
+              className="flex items-center gap-2 px-5 py-3 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-xs shadow-lg shadow-blue-950/60 transition-all duration-300 hover:scale-105 cursor-pointer disabled:opacity-50"
             >
               {isScanning ? (
                 <>
@@ -384,7 +385,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
                 </>
               ) : (
                 <>
-                  <Sparkles className="w-3.5 h-3.5" />
+                  <Sparkles className="w-3.5 h-3.5 text-amber-300" />
                   <span>Run Live AI Audit</span>
                 </>
               )}
@@ -398,12 +399,12 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
         <div className="space-y-6 pt-2 animate-fluid-fade">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2.5">
-              <CheckCircle2 className="w-5 h-5 text-emerald-400" />
+              <CheckCircle2 className="w-5 h-5 text-blue-400" />
               <h3 className="text-lg font-black text-white tracking-wide">
                 Audited Resource Assessment
               </h3>
             </div>
-            <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 font-bold">
+            <span className="text-xs font-mono px-3 py-1 rounded-full bg-blue-500/20 text-sky-300 border border-blue-400/40 font-bold">
               Gemini JSON Response Verified
             </span>
           </div>
@@ -542,13 +543,13 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
                     key={hub.id}
                     className={`p-5 rounded-3xl border transition-all flex flex-col justify-between ${
                       isDispatched
-                        ? 'bg-gradient-to-br from-emerald-950/80 to-slate-900 border-emerald-400 ring-2 ring-emerald-500/40 shadow-[0_0_30px_rgba(16,185,129,0.3)]'
+                        ? 'bg-gradient-to-br from-blue-950/80 to-slate-900 border-blue-400 ring-2 ring-blue-500/40 shadow-[0_0_30px_rgba(37,99,235,0.35)]'
                         : 'bg-slate-900/90 border-slate-800 hover:border-slate-700 hover:shadow-xl'
                     }`}
                   >
                     <div>
                       <div className="flex items-center justify-between mb-2.5">
-                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-300 border border-emerald-500/30">
+                        <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gradient-to-r from-blue-500/20 via-indigo-500/20 to-cyan-500/20 text-sky-300 border border-blue-400/30">
                           #{rankIdx + 1} Best Match
                         </span>
                         <div className="flex items-center gap-1 text-amber-400 text-xs font-bold">
@@ -558,7 +559,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
                       </div>
 
                       <h5 className="font-bold text-sm text-white">{hub.name}</h5>
-                      <span className="text-[10px] text-emerald-400 font-semibold block mt-0.5">
+                      <span className="text-[10px] text-sky-400 font-semibold block mt-0.5">
                         {hub.badge}
                       </span>
 
@@ -574,7 +575,7 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
                         </div>
                         <div className="flex items-center justify-between">
                           <span className="text-slate-400">Available Intake:</span>
-                          <span className="font-mono text-emerald-400 font-bold">
+                          <span className="font-mono text-cyan-400 font-bold">
                             {hub.capacityAvailableKg} kg
                           </span>
                         </div>
@@ -598,16 +599,16 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
 
                     <div className="mt-5 pt-3.5 border-t border-slate-800">
                       {isDispatched ? (
-                        <div className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-slate-950 font-black text-xs shadow-md">
+                        <div className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-black text-xs shadow-md">
                           <CheckCircle2 className="w-4 h-4" />
                           <span>Van Dispatched!</span>
                         </div>
                       ) : (
                         <button
                           onClick={() => handleDispatch(hub)}
-                          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-emerald-400 via-teal-500 to-cyan-500 hover:from-emerald-300 hover:to-cyan-400 text-slate-950 font-black text-xs shadow-lg shadow-emerald-950/60 transition-all duration-300 hover:scale-102 cursor-pointer"
+                          className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-black text-xs shadow-lg shadow-blue-950/80 transition-all duration-300 hover:scale-102 cursor-pointer"
                         >
-                          <Truck className="w-3.5 h-3.5 text-slate-950" />
+                          <Truck className="w-3.5 h-3.5 text-white" />
                           <span>{t.dispatchPickup}</span>
                         </button>
                       )}
@@ -618,9 +619,9 @@ export const WasteScannerTab: React.FC<WasteScannerTabProps> = ({
             </div>
 
             {dispatchedHubId && (
-              <div className="p-4 rounded-3xl bg-emerald-950/40 border border-emerald-500/40 text-emerald-300 text-xs flex items-center justify-between shadow-lg">
+              <div className="p-4 rounded-3xl bg-blue-950/40 border border-blue-500/40 text-sky-200 text-xs flex items-center justify-between shadow-lg">
                 <div className="flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                   <span>
                     <strong>Pickup Successfully Dispatched!</strong> Added to the Live Neighborhood Map & AI Dispatch Feed.
                   </span>

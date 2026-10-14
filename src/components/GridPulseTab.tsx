@@ -111,11 +111,11 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
 
   return (
     <div className="space-y-8">
-      {/* Top Banner & Spike Simulator with Ultraviolet Mesh */}
-      <div className="bg-gradient-to-r from-slate-900 via-violet-950/50 to-slate-900 p-6 sm:p-7 rounded-3xl border border-violet-500/30 shadow-[0_4px_30px_rgba(0,0,0,0.4)]">
+      {/* Top Banner & Spike Simulator with Electric Blue Mesh */}
+      <div className="bg-gradient-to-r from-blue-950/90 via-indigo-950/70 to-slate-900 p-6 sm:p-7 rounded-3xl border border-blue-500/35 shadow-[0_4px_30px_rgba(37,99,235,0.25)]">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
           <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-violet-500/15 border border-violet-500/30 text-violet-300 text-xs font-semibold mb-2.5 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/40 text-sky-300 text-xs font-semibold mb-2.5 shadow-sm">
               <Zap className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
               <span>Autonomous Microgrid Dispatch & Demand Response</span>
             </div>
@@ -155,7 +155,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
         <div className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl">
           <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Safe Grid Capacity Limit</span>
           <div className="mt-1 flex items-baseline gap-1">
-            <ShieldCheck className="w-4 h-4 text-emerald-400 mr-1" />
+            <ShieldCheck className="w-4 h-4 text-sky-400 mr-1" />
             <span className="text-2xl font-black text-white font-mono">420</span>
             <span className="text-xs text-slate-400 font-mono">kW Rating</span>
           </div>
@@ -179,22 +179,22 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
         <div className="bg-slate-900/90 backdrop-blur-xl p-5 rounded-3xl border border-slate-800 shadow-xl">
           <span className="text-[11px] text-slate-400 block font-semibold uppercase tracking-wider">Active Community Load Shaved</span>
           <div className="mt-1 flex items-baseline gap-1">
-            <TrendingDown className="w-4 h-4 text-emerald-400 mr-1" />
-            <span className="text-2xl font-black text-transparent bg-gradient-to-r from-emerald-400 to-cyan-300 bg-clip-text font-mono">
+            <TrendingDown className="w-4 h-4 text-cyan-400 mr-1" />
+            <span className="text-2xl font-black text-transparent bg-gradient-to-r from-cyan-300 via-sky-200 to-blue-300 bg-clip-text font-mono">
               -{totalPledgedKw}
             </span>
             <span className="text-xs text-slate-400 font-mono">kW Pledged</span>
           </div>
-          <span className="text-[10px] text-emerald-400/90 mt-1 block font-mono font-semibold">
+          <span className="text-[10px] text-cyan-400/90 mt-1 block font-mono font-semibold">
             {pledges.filter((p) => p.active).length} of {pledges.length} pledges active
           </span>
         </div>
 
         {/* Transformer Health State */}
-        <div className={`p-5 rounded-3xl border backdrop-blur-xl transition-all duration-500 ${isOverloaded ? 'bg-rose-950/30 border-rose-500/50 shadow-[0_0_25px_rgba(244,63,94,0.25)]' : 'bg-emerald-950/30 border-emerald-500/50 shadow-[0_0_25px_rgba(16,185,129,0.25)]'}`}>
+        <div className={`p-5 rounded-3xl border backdrop-blur-xl transition-all duration-500 ${isOverloaded ? 'bg-rose-950/30 border-rose-500/50 shadow-[0_0_25px_rgba(244,63,94,0.25)]' : 'bg-blue-950/30 border-blue-500/50 shadow-[0_0_25px_rgba(37,99,235,0.25)]'}`}>
           <span className="text-[11px] text-slate-300 block font-semibold uppercase tracking-wider">Transformer Operating State</span>
           <div className="mt-1 flex items-center justify-between">
-            <span className={`text-base font-black font-mono ${isOverloaded ? 'text-rose-400' : 'text-emerald-400'}`}>
+            <span className={`text-base font-black font-mono ${isOverloaded ? 'text-rose-400' : 'text-sky-300'}`}>
               {isOverloaded ? `OVERLOAD (+${overloadKw} kW)` : 'SECURE & BALANCED'}
             </span>
             <span className="text-xs font-mono font-black text-white">
@@ -206,7 +206,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
               className={`h-full transition-all duration-700 ${
                 isOverloaded
                   ? 'bg-gradient-to-r from-rose-500 to-red-600'
-                  : 'bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400'
+                  : 'bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400'
               }`}
               style={{ width: `${Math.min(100, Math.round((currentOptimizedPeak / safeThreshold) * 100))}%` }}
             />
@@ -299,8 +299,8 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
               <span className="w-3 h-3 rounded-full bg-gradient-to-r from-rose-500 to-red-600 shadow-[0_0_8px_rgba(244,63,94,0.5)]" />
               <span>Raw Demand</span>
             </span>
-            <span className="flex items-center gap-1.5 text-emerald-300 font-bold">
-              <span className="w-3 h-3 rounded-full bg-gradient-to-r from-emerald-400 to-cyan-400 shadow-[0_0_8px_rgba(16,185,129,0.5)]" />
+            <span className="flex items-center gap-1.5 text-sky-300 font-bold">
+              <span className="w-3 h-3 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400 shadow-[0_0_8px_rgba(56,189,248,0.6)]" />
               <span>Optimized Demand</span>
             </span>
           </div>
@@ -320,9 +320,9 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
                   <stop offset="95%" stopColor="#e11d48" stopOpacity={0.0} />
                 </linearGradient>
                 <linearGradient id="optDemandGlowGrad" x1="0%" y1="0%" x2="0%" y2="1">
-                  <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.45} />
-                  <stop offset="60%" stopColor="#10b981" stopOpacity={0.2} />
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0.0} />
+                  <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.6} />
+                  <stop offset="60%" stopColor="#06b6d4" stopOpacity={0.25} />
+                  <stop offset="95%" stopColor="#0284c7" stopOpacity={0.0} />
                 </linearGradient>
               </defs>
 
@@ -340,7 +340,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
                   if (active && payload && payload.length) {
                     const data = payload[0].payload;
                     return (
-                      <div className="bg-slate-950/95 backdrop-blur-md p-4 rounded-2xl border border-slate-700 shadow-2xl text-xs space-y-1.5">
+                      <div className="bg-slate-950/95 backdrop-blur-md p-4 rounded-2xl border border-blue-900/40 shadow-2xl text-xs space-y-1.5">
                         <div className="font-bold text-white border-b border-slate-800 pb-1 mb-1 font-mono">
                           Time: {label} {data.isPeak ? '⚡ [Peak Hours]' : ''}
                         </div>
@@ -352,7 +352,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
                           <span>Solar Output:</span>
                           <span>{data.solarKw} kW</span>
                         </div>
-                        <div className="text-emerald-400 font-mono flex justify-between gap-5 font-black border-t border-slate-800 pt-1">
+                        <div className="text-sky-300 font-mono flex justify-between gap-5 font-black border-t border-slate-800 pt-1">
                           <span>Optimized Demand:</span>
                           <span>{data.optimizedDemandKw} kW</span>
                         </div>
@@ -403,7 +403,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
               <Area
                 type="monotone"
                 dataKey="optimizedDemandKw"
-                stroke="#10b981"
+                stroke="#38bdf8"
                 strokeWidth={3}
                 fillOpacity={1}
                 fill="url(#optDemandGlowGrad)"
@@ -419,7 +419,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <div>
             <h3 className="text-base font-black text-white flex items-center gap-2">
-              <Award className="w-4 h-4 text-emerald-400" />
+              <Award className="w-4 h-4 text-blue-400" />
               <span>{t.activePledgesTitle}</span>
             </h3>
             <p className="text-xs text-slate-400">
@@ -427,7 +427,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
             </p>
           </div>
 
-          <div className="flex items-center gap-2 bg-emerald-950/40 border border-emerald-500/30 px-3.5 py-1.5 rounded-2xl text-xs text-emerald-300 shadow-md">
+          <div className="flex items-center gap-2 bg-blue-950/50 border border-blue-500/40 px-3.5 py-1.5 rounded-2xl text-xs text-sky-300 shadow-md">
             <Sparkles className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
             <span>Pledges Shaved: <strong className="font-mono text-sm">{totalPledgedKw} kW</strong></span>
           </div>
@@ -441,13 +441,13 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
                 onClick={() => handlePledgeClick(pledge.id)}
                 className={`p-5 rounded-3xl border transition-all cursor-pointer flex flex-col justify-between ${
                   pledge.active
-                    ? 'bg-gradient-to-br from-emerald-950/70 via-slate-900 to-cyan-950/40 border-emerald-400 ring-2 ring-emerald-500/40 shadow-[0_0_25px_rgba(16,185,129,0.25)]'
+                    ? 'bg-gradient-to-br from-blue-950/80 via-slate-900 to-indigo-950/60 border-blue-400 ring-2 ring-blue-500/40 shadow-[0_0_25px_rgba(37,99,235,0.35)]'
                     : 'bg-slate-900/90 border-slate-800 hover:border-slate-700 hover:bg-slate-850'
                 }`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-2.5">
-                    <span className="text-xs font-mono font-black text-emerald-400 bg-emerald-500/15 px-2.5 py-1 rounded-xl border border-emerald-500/30">
+                    <span className="text-xs font-mono font-black text-sky-300 bg-blue-500/20 px-2.5 py-1 rounded-xl border border-blue-400/40">
                       -{pledge.kwReduction} kW Shift
                     </span>
                     <span className="text-xs font-bold text-amber-300 flex items-center gap-1 font-mono">
@@ -469,7 +469,7 @@ export const GridPulseTab: React.FC<GridPulseTabProps> = ({
                   <div
                     className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl font-black text-xs transition-all duration-300 ${
                       pledge.active
-                        ? 'bg-gradient-to-r from-emerald-400 to-teal-500 text-slate-950 shadow-md'
+                        ? 'bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 text-white shadow-md'
                         : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                     }`}
                   >
