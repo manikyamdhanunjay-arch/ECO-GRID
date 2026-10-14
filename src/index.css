@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Ultra-sleek custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050811;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+/* Ambient bioluminescent backdrop */
+.bg-mesh-aurora {
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.08) 0%, transparent 50%);
+}
+
+/* Leaflet Dark Glassmorphic Map Enhancements */
+.leaflet-container {
+  background-color: #030712 !important;
+  font-family: inherit !important;
+  outline: none;
+}
+
+.custom-leaflet-tooltip {
+  background: rgba(15, 23, 42, 0.95) !important;
+  backdrop-filter: blur(8px) !important;
+  border: 1px solid rgba(51, 65, 85, 0.8) !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+  color: #f8fafc !important;
+  padding: 6px 10px !important;
+}
+
+.custom-leaflet-tooltip::before {
+  border-top-color: rgba(15, 23, 42, 0.95) !important;
+}
+
+.leaflet-custom-node {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Animated flowing dashed stroke for dynamic Leaflet routes */
+@keyframes routeFlowDash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.animate-route-flow {
+  animation: routeFlowDash 1.2s linear infinite;
+}
+
+@keyframes gridPulseDash {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-grid-pulse {
+  animation: gridPulseDash 2s linear infinite;
+}

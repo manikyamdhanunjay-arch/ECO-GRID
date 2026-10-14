@@ -1,0 +1,6 @@
+{
+  "name": "EcoGrid — Community Micro-Waste & Energy Optimizer",
+  "description": "Hyper-local zero-waste resource matching and neighborhood micro-grid peak shaving with multimodal Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
